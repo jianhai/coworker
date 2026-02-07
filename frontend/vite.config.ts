@@ -20,14 +20,8 @@ try {
   console.warn('Failed to load config, using defaults:', e)
 }
 
-// 支持 http 和 https
-const isHttps = backendBindAddress.includes('localhost') || backendBindAddress.includes('127.0.0.1')
-  ? false
-  : !backendBindAddress.startsWith('http://')
-const backendUrl = isHttps || backendBindAddress.startsWith('https://')
-  ? (backendBindAddress.startsWith('https://') ? backendBindAddress : `https://${backendBindAddress}`)
-  : `http://${backendBindAddress}`
-const wsUrl = backendUrl.replace('http://', 'ws://').replace('https://', 'wss://')
+const backendUrl = `http://${backendBindAddress}`
+const wsUrl = `ws://${backendBindAddress}`
 
 export default defineConfig({
   plugins: [react()],
