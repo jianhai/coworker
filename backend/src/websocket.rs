@@ -1,4 +1,3 @@
-use std::collections::{HashMap, HashSet};
 use std::sync::Arc;
 use tokio::sync::{mpsc, RwLock};
 use axum::{
@@ -13,12 +12,6 @@ use crate::auth::verify_token;
 use crate::models::{
     AppState, ClientMessage, ServerMessage, Message as ModelMessage, MessageContent, ActiveBotInfo,
 };
-
-/// 全局连接管理器
-/// room_id -> Set of usernames in that room
-type RoomMembers = Arc<RwLock<HashMap<String, HashSet<String>>>>;
-/// username -> message sender
-type Connections = Arc<RwLock<HashMap<String, mpsc::UnboundedSender<axum::extract::ws::Message>>>>;
 
 pub async fn websocket_handler(
     ws: WebSocketUpgrade,

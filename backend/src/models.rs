@@ -183,6 +183,7 @@ impl Bot {
         }
     }
 
+    #[allow(dead_code)]
     pub fn with_ai(mut self, model: String, system_prompt: Option<String>) -> Self {
         self.ai_model = Some(model);
         self.system_prompt = system_prompt;
@@ -220,6 +221,7 @@ pub struct CreateBotRequest {
 
 /// Bot 响应
 #[derive(Debug, Serialize)]
+#[allow(dead_code)]
 pub struct BotResponse {
     pub id: String,
     pub name: String,

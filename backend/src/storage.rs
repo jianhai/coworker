@@ -6,9 +6,6 @@ use std::sync::Arc;
 use tokio::sync::RwLock;
 
 const DATA_DIR: &str = "./data";
-const USERS_FILE: &str = "./data/users.json";
-const ROOMS_FILE: &str = "./data/rooms.json";
-const BOTS_FILE: &str = "./data/bots.json";
 
 #[derive(Debug, serde::Serialize, serde::Deserialize)]
 pub struct StorageData {

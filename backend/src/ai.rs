@@ -19,42 +19,58 @@ struct ChatRequest {
 #[derive(Debug, Deserialize)]
 struct ChatChoice {
     message: ChatMessageResponse,
+    #[allow(dead_code)]
     index: i32,
+    #[allow(dead_code)]
     finish_reason: Option<String>,
 }
 
 #[derive(Debug, Deserialize)]
 struct ChatResponse {
     choices: Vec<ChatChoice>,
+    #[allow(dead_code)]
     created: u64,
+    #[allow(dead_code)]
     id: String,
+    #[allow(dead_code)]
     model: String,
+    #[allow(dead_code)]
     usage: Option<Usage>,
 }
 
 #[derive(Debug, Deserialize)]
 struct Usage {
+    #[allow(dead_code)]
     prompt_tokens: u32,
+    #[allow(dead_code)]
     completion_tokens: u32,
+    #[allow(dead_code)]
     total_tokens: u32,
 }
 
 #[derive(Debug, Deserialize)]
 struct ChatMessageResponse {
     content: String,
+    #[allow(dead_code)]
     role: String,
 }
 
 #[derive(Debug, Deserialize)]
+#[allow(dead_code)]
 struct ErrorResponse {
+    #[allow(dead_code)]
     error: ErrorDetail,
 }
 
 #[derive(Debug, Deserialize)]
+#[allow(dead_code)]
 struct ErrorDetail {
+    #[allow(dead_code)]
     message: String,
+    #[allow(dead_code)]
     code: Option<String>,
     #[serde(rename = "type")]
+    #[allow(dead_code)]
     error_type: Option<String>,
 }
 

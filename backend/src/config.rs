@@ -110,6 +110,7 @@ pub fn load_backend_config() -> Result<BackendConfig, Box<dyn std::error::Error>
     load_config().map(|c| c.backend)
 }
 
+#[allow(dead_code)]
 pub fn load_frontend_config() -> Result<FrontendConfig, Box<dyn std::error::Error>> {
     load_config().map(|c| c.frontend)
 }
