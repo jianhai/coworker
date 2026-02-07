@@ -72,7 +72,8 @@ init-config:
 		echo '    "bind_address": "127.0.0.1:3000"' >> $(SETTINGS_FILE); \
 		echo '  },' >> $(SETTINGS_FILE); \
 		echo '  "frontend": {' >> $(SETTINGS_FILE); \
-		echo '    "port": 5173' >> $(SETTINGS_FILE); \
+		echo '    "port": 5173,' >> $(SETTINGS_FILE); \
+		echo '    "host": "0.0.0.0"' >> $(SETTINGS_FILE); \
 		echo '  },' >> $(SETTINGS_FILE); \
 		echo '  "ai": {' >> $(SETTINGS_FILE); \
 		echo '    "api_key": "your-api-key-here",' >> $(SETTINGS_FILE); \
