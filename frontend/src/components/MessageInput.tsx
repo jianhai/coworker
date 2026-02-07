@@ -89,14 +89,13 @@ export default function MessageInput({
   const canSend = text.trim() || image
 
   return (
-    <div className="border-t border-gray-200/60 bg-white/80 backdrop-blur-lg px-4 py-4">
+    <div className="border-t border-gray-200/60 bg-white/80 backdrop-blur-lg px-3 md:px-4 py-2 md:py-4">
       <div className="max-w-4xl mx-auto">
         {/* 图片预览 */}
         {image && (
-          <div className="mb-3 relative inline-block group">
+          <div className="mb-2 md:mb-3 relative inline-block group">
             <div className="relative rounded-2xl overflow-hidden shadow-lg ring-2 ring-blue-100">
-              <img src={image} alt="Preview" className="max-h-40 max-w-xs object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <img src={image} alt="Preview" className="max-h-32 max-w-xs object-cover" />
             </div>
             <button
               onClick={() => setImage(null)}
@@ -110,7 +109,7 @@ export default function MessageInput({
         )}
 
         {/* 输入区域 */}
-        <div className="flex items-end gap-3">
+        <div className="flex items-end gap-2 md:gap-3">
           <input
             ref={fileInputRef}
             type="file"
@@ -122,7 +121,7 @@ export default function MessageInput({
           {/* 图片上传按钮 */}
           <button
             onClick={() => fileInputRef.current?.click()}
-            className={`p-3 rounded-xl transition-all duration-200 ${
+            className={`p-2 md:p-3 rounded-xl transition-all duration-200 flex-shrink-0 ${
               disabled
                 ? 'text-gray-300 cursor-not-allowed'
                 : 'text-gray-500 hover:text-blue-500 hover:bg-blue-50 active:scale-95'
@@ -131,7 +130,7 @@ export default function MessageInput({
             disabled={disabled}
           >
             <svg
-              className="w-6 h-6"
+              className="w-5 h-5 md:w-6 md:h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -153,9 +152,9 @@ export default function MessageInput({
               onChange={handleTextChange}
               onKeyPress={handleKeyPress}
               onPaste={handlePaste}
-              placeholder="输入消息... (支持粘贴图片，Shift+Enter 换行)"
+              placeholder="输入消息..."
               disabled={disabled}
-              className={`w-full px-5 py-3 rounded-2xl border-2 transition-all duration-200 ${
+              className={`w-full px-4 py-2.5 md:py-3 md:px-5 rounded-2xl border-2 transition-all duration-200 text-sm md:text-base ${
                 disabled
                   ? 'bg-gray-100 border-gray-200 text-gray-400 cursor-not-allowed'
                   : 'bg-gray-50 border-gray-200 focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-100'
@@ -167,15 +166,15 @@ export default function MessageInput({
           <button
             onClick={handleSend}
             disabled={disabled || !canSend}
-            className={`px-6 py-3 rounded-xl font-medium transition-all duration-200 flex items-center gap-2 ${
+            className={`px-4 md:px-6 py-2.5 md:py-3 rounded-xl font-medium transition-all duration-200 flex items-center gap-1 md:gap-2 flex-shrink-0 ${
               disabled || !canSend
                 ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                 : 'bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 hover:shadow-lg hover:shadow-blue-500/30 active:scale-95'
             }`}
           >
-            <span>发送</span>
+            <span className="hidden sm:inline">发送</span>
             <svg
-              className="w-5 h-5"
+              className="w-4 h-4 md:w-5 md:h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

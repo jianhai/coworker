@@ -58,9 +58,9 @@ export default function RegisterForm({ onSuccess, onToggleLogin }: RegisterFormP
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
       {error && (
-        <div className="bg-red-100 text-red-700 p-3 rounded text-sm">
+        <div className="bg-red-100 text-red-700 p-2.5 md:p-3 rounded-lg text-sm">
           {error}
         </div>
       )}
@@ -73,9 +73,10 @@ export default function RegisterForm({ onSuccess, onToggleLogin }: RegisterFormP
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-4 py-2.5 md:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
           required
           minLength={3}
+          autoComplete="username"
         />
       </div>
 
@@ -87,9 +88,10 @@ export default function RegisterForm({ onSuccess, onToggleLogin }: RegisterFormP
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-4 py-2.5 md:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
           required
           minLength={6}
+          autoComplete="new-password"
         />
       </div>
 
@@ -101,15 +103,16 @@ export default function RegisterForm({ onSuccess, onToggleLogin }: RegisterFormP
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-4 py-2.5 md:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
           required
+          autoComplete="new-password"
         />
       </div>
 
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+        className="w-full bg-blue-500 text-white py-2.5 md:py-3 rounded-xl hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium text-base touch-manipulation"
       >
         {loading ? '注册中...' : '注册'}
       </button>
@@ -119,7 +122,7 @@ export default function RegisterForm({ onSuccess, onToggleLogin }: RegisterFormP
         <button
           type="button"
           onClick={onToggleLogin}
-          className="text-blue-500 hover:underline ml-1"
+          className="text-blue-500 hover:underline ml-1 font-medium touch-manipulation"
         >
           登录
         </button>
