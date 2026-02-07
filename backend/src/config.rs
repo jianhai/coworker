@@ -38,7 +38,7 @@ fn default_frontend_port() -> u16 {
 }
 
 fn default_backend_url() -> String {
-    "http://127.0.0.1:3000".to_string()
+    "https://127.0.0.1:3000".to_string()
 }
 
 fn default_bind_address() -> String {
